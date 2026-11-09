@@ -53,6 +53,12 @@ namespace CampusNetGraph.Models
                    string.Equals(r, "Egresado", StringComparison.OrdinalIgnoreCase);
         }
 
+        private string NormalizarRol(string rol)
+        {
+            string r = rol.Trim().ToLowerInvariant();
+            return char.ToUpperInvariant(r[0]) + r.Substring(1);
+        }
+
         // ==================== OPERACIONES CRUD DE VÉRTICES (USUARIOS) ====================
 
         public bool AgregarUsuario(string id, string nombre, string rol, out string detalle)
@@ -77,7 +83,7 @@ namespace CampusNetGraph.Models
                 return false;
             }
 
-            Vertex nuevoUsuario = new Vertex(clave, nombre, rol);
+            Vertex nuevoUsuario = new Vertex(clave, nombre, NormalizarRol(rol));
             vertices[clave] = nuevoUsuario;
             listaAdyacencia[clave] = new List<string>();
 
@@ -109,7 +115,7 @@ namespace CampusNetGraph.Models
 
             string datosAnteriores = $"{usuarioExistente.Nombre} ({usuarioExistente.Rol})";
             usuarioExistente.Nombre = nuevoNombre.Trim();
-            usuarioExistente.Rol = nuevoRol.Trim();
+            usuarioExistente.Rol = NormalizarRol(nuevoRol);
 
             detalle = $"Usuario '{clave}' actualizado: '{datosAnteriores}' -> '{usuarioExistente.Nombre} ({usuarioExistente.Rol})'.";
             return true;

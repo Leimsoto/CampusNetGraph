@@ -7,7 +7,7 @@ Proyecto de consola en C# (.NET 8.0) implementado bajo el patrón arquitectónic
 
 | Integrante | Responsabilidades |
 | :--- | :--- |
-| Germán Alberto Colorado Moscoso | Implementación de la capa Model (`Vertex.cs`, `Edge.cs`, `Graph.cs`), estructura de lista de adyacencia (`Dictionary<string, List<string>>`), operaciones CRUD, recorridos BFS/DFS con detección de ciclos y cálculo de grados de entrada/salida. |
+| Germán Alberto Colorado Moscoso | Implementación de la capa Model (`Vertex.cs`, `Edge.cs`, `Graph.cs`), estructura de lista de adyacencia (`Dictionary<string, List<string>>`), operaciones CRUD con validación y normalización de IDs y roles (`Estudiante`, `Profesor`, `Egresado`), recorridos BFS/DFS con detección de ciclos y cálculo de grados de entrada/salida. |
 | Leimar Yesid Soto Olaya | Implementación de la capa View (`ConsolaView.cs`), capa Controller (`GraphController.cs`, `Program.cs`), presentación de listas de adyacencia, métricas sociales, pruebas de alcanzabilidad y redacción del `README.md`. |
 
 ## Estructura del Proyecto (Arquitectura MVC)
